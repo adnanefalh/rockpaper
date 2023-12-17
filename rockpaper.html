@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>   &#128406; Rock paper scissors</title>
+</head>
+<style>
+    .search button {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+    .button {
+        font-size: 250%;
+        border-radius: 50%;
+        background-color: black;
+    }
+    label {
+        font-size: 250%;
+    }
+    .reset{
+        border-radius: 20%;
+        background-color: green;
+
+    }
+    .card{  
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, #00feba,#5b548a);
+    color: #fff;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+
+}
+</style>
+<body bgcolor="#C0C0C0">
+    <div class="card">
+        <h1>Rock paper scissors</h1>
+<div >
+    <button value="0" id="0" class="button" onclick="console.log(scissorsai(min,max));" > &#128406; </button>
+    <button value="1" id="1" class="button" onclick="console.log(paperai(min,max));" > &#9995; </button>
+    <button value="2" id="2" class="button" onclick="console.log(rockai(min,max));  ">  &#9994;</button>
+    
+</div>
+<br>
+    <br>
+    <label id="resultscore"></label>
+    <br>
+    <br>
+    <label id="score"></label>
+<br>
+<br>
+    <label  > Wins : </label>
+    <label id ="winscore"> 0 </label>
+    <label> Losses : </label>
+    <label id ="losescore"> 0 </label>
+    <label> Ties : </label>
+    <label id="tiescore"> 0 </label>
+    <br>
+    <br>
+    <button class="search" onclick="resetscore();">RESET SCORE</button>
+</div>
+</body>
+
+<script>
+  
+    let min = 0 ;
+    let max = 2 ; 
+    let scorewin = 0;
+    let scorelose = 0;
+    let scoretie = 0 ;
+    function resetscore(){
+        scorewin = 0;
+        document.getElementById("winscore").innerHTML = scorewin.toString();
+    scorelose = 0;
+    document.getElementById("losescore").innerHTML = scorelose.toString();
+    scoretie = 0 ;
+    document.getElementById("tiescore").innerHTML = scoretie.toString();
+    }
+  
+    function rockai(min,max){
+       let result =  Math.floor(Math.random() * (max-min +1 )+min);
+       
+       if(result ==2){
+        console.log("tie");
+        scoretie += 1;
+        document.getElementById("tiescore").innerHTML = scoretie.toString();
+        document.getElementById("resultscore").innerHTML="tie"
+        document.getElementById("score").innerHTML="you &#9994  &#9994  computer ";
+       }
+       if(result ==0){
+        console.log("you win!");
+        scorewin += 1;
+        document.getElementById("winscore").innerHTML = scorewin.toString();
+        document.getElementById("resultscore").innerHTML="you win !";
+        document.getElementById("score").innerHTML="you &#9994  &#128406  computer ";
+
+       }
+       if(result ==1){
+        console.log("you lose!!");
+        scorelose += 1;
+        document.getElementById("losescore").innerHTML = scorelose.toString();
+        document.getElementById("resultscore").innerHTML="you lose ! ";
+        document.getElementById("score").innerHTML="you &#9994  &#9995  computer ";
+
+       }
+       return result;
+    }
+    function paperai(min,max){
+       let result =  Math.floor(Math.random() * (max-min +1 )+min);
+       if(result ==2){
+        console.log("you win!");
+        scorewin += 1;
+        document.getElementById("winscore").innerHTML = scorewin.toString();
+        document.getElementById("resultscore").innerHTML="you win !";
+        document.getElementById("score").innerHTML="you &#9995  &#9994  computer ";
+
+       }
+       if(result ==0){
+        console.log("you lose!");
+        scorelose += 1;
+        document.getElementById("losescore").innerHTML = scorelose.toString();
+        document.getElementById("resultscore").innerHTML="you lose ! ";
+        document.getElementById("score").innerHTML="you &#9995  &#128406  computer ";
+
+       }
+       if(result ==1){
+        console.log("tie!!");
+        scoretie += 1;
+        document.getElementById("tiescore").innerHTML = scoretie.toString();
+        document.getElementById("resultscore").innerHTML="tie";
+        document.getElementById("score").innerHTML="you &#9995  &#9995 computer ";
+
+       }
+       return result;
+
+    }
+    function scissorsai(min,max){
+       let result =  Math.floor(Math.random() * (max-min +1 )+min);
+       if(result ==2){
+        console.log("you lose!");
+        scorelose += 1;
+        document.getElementById("losescore").innerHTML = scorelose.toString();
+        document.getElementById("resultscore").innerHTML="you lose ! ";
+        document.getElementById("score").innerHTML="you &#128406  &#9994  computer ";
+
+       }
+       if(result ==0){
+        console.log("Tie!");
+        scoretie += 1;
+        document.getElementById("tiescore").innerHTML = scoretie.toString();
+        document.getElementById("resultscore").innerHTML="tie";
+        document.getElementById("score").innerHTML="you &#128406  &#128406  computer ";
+
+       }
+       if(result ==1){
+        console.log("you win!!");
+        scorewin += 1;
+        document.getElementById("winscore").innerHTML = scorewin.toString();
+        document.getElementById("resultscore").innerHTML="you win ! ";
+        document.getElementById("score").innerHTML="you &#128406  &#9995  computer ";
+
+       }
+       return result;
+
+    }
+   
+    
+</script>
+</html>
